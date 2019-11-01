@@ -1,12 +1,12 @@
-.App {
+.Main {
   text-align: center;
 }
 
-.App-logo {
+.Main-logo {
   height: 40vmin;
 }
 
-.App-header {
+.Main-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -17,6 +17,6 @@
   color: white;
 }
 
-.App-link {
+.Main-link {
   color: #09d3ac;
 }
