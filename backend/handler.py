@@ -19,6 +19,8 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 
+import backend.data_processing
+
 app = Flask(__name__)
 CORS(app)
 
