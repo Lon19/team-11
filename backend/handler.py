@@ -21,9 +21,14 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
+
 @app.route('/hello', methods=['GET'])
 def hello_world():
     return jsonify({'res':'Hello, World!'})
+
+@app.route('/ward-data', methods=['GET'])
+def getWards():
+    return None
 
 if __name__ == '__main__':
     app.run()
