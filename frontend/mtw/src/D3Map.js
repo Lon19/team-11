@@ -110,7 +110,7 @@ class D3Map extends React.Component {
             g.call(
               d3.zoom().on("zoom", zoomed)
                 .extent([[0, 0], [width, height]])
-                .scaleExtent([1, 8])
+                .scaleExtent([1, 12])
             )
             
             
