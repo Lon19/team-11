@@ -30,6 +30,10 @@ class D3Map extends React.Component {
     let code = feature.properties.wd18cd;
     let data = wardData[code];
 
+    if (code.substring(0, 1) === 'E' && !!data) {
+      console.log(code)
+      console.log(data)
+    }
     if (data == undefined) {
       // console.log("Missing ward data.");
       return 99999;
@@ -37,7 +41,6 @@ class D3Map extends React.Component {
     
     return data.total
   }
-  
   
 
   drawMap() {
