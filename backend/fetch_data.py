@@ -48,3 +48,17 @@ def get_ward_hist(ward):
     return jsonify({ward:jsonify(composite_np)})
 
 print(get_ward_hist('95AA01'))
+
+def get_uk_analytics():
+    av_uk = round(np.mean(api_nomis['total']), 1)
+    names = api_nomis.index
+    eng = [i for i in names if i.startswith('E')]
+    eng_val = round(np.mean(api_nomis.loc[eng, 'total']), 1)
+    wal = [i for i in names if i.startswith('W')]
+    wal_val = round(np.mean(api_nomis.loc[wal, 'total']), 1)
+    sco = [i for i in names if i.startswith('S')]
+    sco_val = round(np.mean(api_nomis.loc[sco, 'total']), 1)
+    nir = [i for i in names if i.startswith('95')]
+    nir_val = round(np.mean(api_nomis.loc[nir, 'total']), 1)
+
+    return jsonify({'uk':av_uk, 'england':eng_val, 'wales':wal_val, 'scotland':sco_val, 'ni':nir_val})
