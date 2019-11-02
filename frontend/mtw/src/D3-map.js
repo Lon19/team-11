@@ -37,13 +37,25 @@ class D3Map extends React.Component {
       console.log(data)
     }
     if (data == undefined) {
-      // console.log("Missing ward data.");
+      // handle error more gracefully; for now, highlight it bright red!
       return 99999;
     }
 
     return data.total
   }
   
+  queryWard(wardData, mapData, ward) {
+    let total = this.getTotal(wardData, mapData, ward);
+    
+    axios.get("http://localhost:5000/uk-stats")
+      .then(stats => {
+        this.props.onWardClick({
+          ward: ward,
+          total: total,
+          stats: stats.data
+        });
+    })
+  }
 
   drawMap() {
     const svg = d3.select('#map')
@@ -72,14 +84,8 @@ class D3Map extends React.Component {
               }
               return m;
             }
-            // console.log(toIndividualKeys(wardData));
             let max = maximum(wardData.data)
-            console.log(max)
             let min = minimum(wardData.data)
-            console.log(min)
-            console.log(wardData.data);
-            console.log(mapdata.data);
-            
             
             const projection = d3.geoAzimuthalEqualArea()
                   .fitExtent([[0, 0], [width, height]], mapdata.data)
@@ -93,19 +99,14 @@ class D3Map extends React.Component {
             this.path = path;
             
             let _this = this;
-
+            
             g.selectAll("path")
               .data(mapdata.data.features)
               .enter()
               .append("path")
               .attr("d", path)
               .attr('fill', p => {
-                // console.log(d3.interpolateReds(this.getTotal(wardData.data, mapdata.data, p) / max))
                 let k = this.getTotal(wardData.data, mapdata.data, p) / max;
-                // if (k > 0.25) {
-                //   console.log(p)
-                //   console.log(k)
-                // }
                 let x = (1 - k) * 255
                 return `rgb(255, ${x}, ${x})`
               })
@@ -116,7 +117,7 @@ class D3Map extends React.Component {
                 d3.select(this).classed('active', false)
               })
               .on('click', function(d) {
-                _this.props.onWardClick(d);
+                _this.queryWard(wardData.data, mapdata.data, d);
               })
             
             let zoomed = () => {
@@ -128,8 +129,6 @@ class D3Map extends React.Component {
                 .extent([[0, 0], [width, height]])
                 .scaleExtent([1, 12])
             )
-            
-            
           })
       })
       .catch(e => {
