@@ -18,5 +18,9 @@ def get_wards():
 def get_ward_hist():
     return fetch_data.get_ward_hist(request.args.get('ward'))
 
+@app.route('/uk-stats', methods=['GET'])
+def get_uk_analytics():
+    return fetch_data.get_uk_analytics()
+
 if __name__ == '__main__':
     app.run()
