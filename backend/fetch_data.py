@@ -10,15 +10,21 @@ def get_new_ward(old_ward):
 
     return np.asarray(ward_lookup[ward_lookup['old_ward'] == old_ward]['new_ward'])
 
-api_nomis = pd.read_csv('./backend/fixed_data.csv')
+new_ward_data = pd.read_csv('./backend/fixed_data.csv')
+old_ward_data = pd.read_csv('./backend/old_ward_data.csv')
 
 # api_nomis['final_total'] = api_nomis['Total'] + api_nomis['Total.1']
 # api_nomis = (api_nomis.drop(['Female', 'Female.1', 'Male', 'Male.1', 'Total', 'Total.1', 'GEOGRAPHY_NAME'], axis = 1))
-api_nomis = api_nomis.set_index(verify_integrity = True, keys = ['GEOGRAPHY_CODE'])
-api_nomis = api_nomis.rename(columns={"final_total" : "total"})
+new_ward_data = new_ward_data.set_index(verify_integrity = True, keys = ['GEOGRAPHY_CODE'])
+new_ward_data = new_ward_data.rename(columns={"final_total" : "total"})
+old_ward_data = old_ward_data.set_index(verify_integrity = True, keys = ['GEOGRAPHY_CODE'])
+old_ward_data = old_ward_data.rename(columns={"final_total" : "total"})
 
 def get_data():
-    return api_nomis.to_json(orient='index')
+    return new_ward_data.to_json(orient='index')
+
+def get_data_old():
+    return old_ward_data.to_json(orient='index')
 
 # def download_hist_data():
 #     for i in range(0, 24):
