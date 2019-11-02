@@ -29,5 +29,9 @@ def get_map_data():
         data = json.load(f)
     return data
 
+@app.route('/postcode', methods=['GET'])
+def get_ward_from_postcode():
+    return fetch_data.get_ward_for_postcode(request.args.get('postcode'))
+
 if __name__ == '__main__':
     app.run()
