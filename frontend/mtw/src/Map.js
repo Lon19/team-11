@@ -1,12 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Card, CardTitle, Row, Col, Input, InputGroup, InputGroupText, InputGroupAddon, Label } from 'reactstrap';
+import { Container, Card, CardBody, CardTitle, Row, Col, Input, InputGroup, InputGroupText, InputGroupAddon, Label } from 'reactstrap';
+import TestPlot from './TestPlot';
 import './Map.css';
 import './Main.css';
 import './Fonts.css';
 import './Common.css';
 
 function Map() {
+
     //States.
+    const [data, setData] = useState({
+      datasets: [
+          {
+              label: 'Sample dataset',
+              fillColor: 'rgba(220,220,220,0.2)',
+              strokeColor: 'rgba(220,220,220,1)',
+              pointColor: 'rgba(220,220,220,1)',
+              pointStrokeColor: '#fff',
+              pointHighlightFill: '#fff',
+              pointHighlightStroke: 'rgba(220,220,220,1)',
+              data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
+          }
+      ]}
+    )
     const [txtFilter, setTxtFilter] = useState("");
     const [ageLow, setAgeLow] = useState(true);
     const [ageHigh, setAgeHigh] = useState(true);
@@ -79,8 +95,14 @@ function Map() {
                 </Col>
                 <Col style={{paddingLeft: "8px", paddingRight: "15px"}} xs="4" md="4" lg="4">
                     <Card className="card-info">
+                      <CardBody>
                         <CardTitle>Info Section</CardTitle>
+<<<<<<< ours
 
+=======
+                        <TestPlot data={data}/>
+                      </CardBody>
+>>>>>>> theirs
                     </Card>
                 </Col>
             </Row>
