@@ -1,11 +1,17 @@
 .Main {
-
+  height: 100%;
+  display: flex;
+  flex-flow: column;
 }
 
 .Main-Content {
   /* min-height: 100vh; */
-  display: flex;
-  font-size: calc(10px + 2vmin);
+  flex: 1;
+  font-size: calc(10px + 1vmin);
   color: black;
+  display: flex;
+  flex-flow: column;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
