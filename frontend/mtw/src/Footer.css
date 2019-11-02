@@ -1,0 +1,25 @@
+.footer {
+    color: #ffffff;
+    background-color: #e4018b;
+    text-shadow: 0.25px 0.25px #ffeedd!important;
+}
+
+.footer-main {
+
+}
+
+.col-md-6 {
+    padding: 1em;
+}
+
+.footer-teamname {
+    color: #dddddd;
+    margin-left: 0.5em;
+}
+
+.footer-copyright {
+    background-color: #710045;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    color: #ffffff;
+}

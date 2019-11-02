@@ -1,22 +1,21 @@
 .Main {
-  text-align: center;
-}
-
-.Main-logo {
-  height: 40vmin;
-}
-
-.Main-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-flow: column;
+
 }
 
-.Main-link {
-  color: #09d3ac;
+body {
+     font-family: 'Noto Serif JP', serif;
+}
+
+.Main-Content {
+  /* min-height: 100vh; */
+  flex: 1;
+  font-size: 14px;
+  color: black;
+  display: flex;
+  flex-flow: column;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
