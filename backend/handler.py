@@ -15,6 +15,10 @@ def hello_world():
 def get_wards():
     return fetch_data.get_data()
 
+@app.route('/ward-data-old', methods=['GET'])
+def get_wards_old():
+    return fetch_data.get_data_old()
+
 @app.route('/ward-hist', methods=['GET'])
 def get_ward_hist():
     return fetch_data.get_ward_hist(request.args.get('ward'))
