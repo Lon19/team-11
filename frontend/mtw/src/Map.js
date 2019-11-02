@@ -121,7 +121,7 @@ function Map() {
                           console.log(info.total);
                           console.log(info);
                           
-                          setCardTitle(info.ward.properties.wd18nm);
+                          setCardTitle(info.ward.properties.wd18nm + 'Total Unemployed ' + info.total + ' (UK average ' + info.stats.uk + ')');
                           updateData(info.ward.properties.wd18nm, info.ward.properties.wd18cd);
                         }}/>
                       </CardBody>
