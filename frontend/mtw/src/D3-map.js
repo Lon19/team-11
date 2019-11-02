@@ -91,6 +91,8 @@ class D3Map extends React.Component {
             
             this.g = g;
             this.path = path;
+            
+            let _this = this;
 
             g.selectAll("path")
               .data(mapdata.data.features)
@@ -106,6 +108,15 @@ class D3Map extends React.Component {
                 // }
                 let x = (1 - k) * 255
                 return `rgb(255, ${x}, ${x})`
+              })
+              .on('mouseover', function(d) {
+                d3.select(this).classed('active', true)
+              })
+              .on('mouseout', function(d) {
+                d3.select(this).classed('active', false)
+              })
+              .on('click', function(d) {
+                _this.props.onWardClick(d);
               })
             
             let zoomed = () => {

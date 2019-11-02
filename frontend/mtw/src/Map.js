@@ -29,6 +29,7 @@ function Map() {
     const [ageHigh, setAgeHigh] = useState(true);
     const [sexMale, setSexMale] = useState(true);
     const [sexFemale, setSexFemale] = useState(true);
+    const [cardTitle, setCardTitle] = useState("Info");
 
     //Toggle Functions.
     let toggleSearch = () =>  { setTxtFilter(document.getElementById("filter-search").value) };
@@ -87,14 +88,20 @@ function Map() {
                       </div>
 
                       <CardBody>
-                        <D3Map />
+                        <D3Map onWardClick={(d) => {
+                          
+                          console.log(d.properties.wd18cd);
+                          console.log(d);
+                          
+                          setCardTitle(d.properties.wd18nm);
+                        }}/>
                       </CardBody>
                     </Card>
                 </Col>
                 <Col style={{paddingLeft: "8px", paddingRight: "15px"}} xs="4" md="4" lg="4">
                     <Card className="card-info">
                       <CardBody>
-                        <CardTitle>Info Section</CardTitle>
+                        <CardTitle>{cardTitle}</CardTitle>
                         <TestPlot data={data}/>
                       </CardBody>
                     </Card>
