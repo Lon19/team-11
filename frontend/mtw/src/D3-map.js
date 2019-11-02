@@ -4,8 +4,8 @@ import './D3-map.css';
 import axios from 'axios'
 import * as R from 'ramda';
 
-let width = 1000
-let height = 1000
+let width = 750
+let height = 500
 
 class D3Map extends React.Component {
   path;
@@ -30,10 +30,15 @@ class D3Map extends React.Component {
     let code = feature.properties.wd18cd;
     let data = wardData[code];
 
-    if (code.substring(0, 1) === 'E' && !!data) {
+    // console.log(feature.properties)
+    // console.log(typeof(feature.properties.wd18cd))
+    // console.log(typeof("E36003619"))
+    // console.log(wardData["E36003619"].total);
+
+    if (code == "E36003619") {
       console.log(code)
-      console.log(data)
-    }
+      console.log(wardData[code].total)
+    } 
     if (data == undefined) {
       // console.log("Missing ward data.");
       return 99999;
