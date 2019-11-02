@@ -1,6 +1,7 @@
 .footer {
     color: #ffffff;
-    background-color: #eec1ae;
+    background-color: #e4018b;
+    text-shadow: 0.25px 0.25px #ffeedd!important;
 }
 
 .footer-main {
@@ -17,7 +18,7 @@
 }
 
 .footer-copyright {
-    background-color: #bea18e;
+    background-color: #710045;
     padding-top: 0.2em;
     padding-bottom: 0.2em;
     color: #ffffff;

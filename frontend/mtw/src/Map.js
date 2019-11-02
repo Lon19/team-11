@@ -26,6 +26,13 @@ function Map() {
         console.log("25-29 (" + ageHigh + ")");
         console.log("Male (" + sexMale + ")");
         console.log("Female (" + sexFemale + ")");
+
+        if (!ageLow && !ageHigh) {
+            alert("Must select at least one age range.");
+        }
+        if (!sexMale && !sexFemale) {
+            alert("Must select at least one gender.");
+        }
     }, [ageLow, ageHigh, sexMale, sexFemale]);
 
     //Effect Hook for search changes.
@@ -34,9 +41,9 @@ function Map() {
     }, [txtFilter]);
 
     return (
-        <Container style={{margin:"0", minWidth: '100%', height: '100%'}}>
-            <Row style={{height: '100%'}}>
-                <Col style={{paddingLeft: "15px", paddingRight: "8px", height: '100%'}} xs="8" md="8" lg="8">
+        <Container>
+            <Row>
+                <Col style={{paddingLeft: "15px", paddingRight: "8px"}} xs="8" md="8" lg="8">
                     <Card className="card-map">
                       <InputGroup>
                         <Input type="text" name="filter-search" id="filter-search" placeholder="Search..." onChange={toggleSearch}/>
@@ -49,15 +56,15 @@ function Map() {
                       <Col>
                         <span className="filter-checkbox-header">Age:</span>
                         <span className="filter-checkbox">
-                          <Label check><Input type="checkbox" onChange={toggleAgeLow}/>{' '}18-24</Label>
-                          <Label check className="filter-checkbox"><Input type="checkbox" onChange={toggleAgeHigh}/>{' '}25-29</Label>
+                          <Label check><Input type="checkbox" onChange={toggleAgeLow} defaultChecked={true}/>{' '}18-24</Label>
+                          <Label check className="filter-checkbox"><Input type="checkbox" onChange={toggleAgeHigh} defaultChecked={true}/>{' '}25-29</Label>
                         </span>
                       </Col>
                       <Col>
                         <span className="filter-checkbox-header">Sex:</span>
                         <span className="filter-checkbox">
-                          <Label check className="filter-checkbox"><Input type="checkbox" onChange={toggleSexMale}/>{' '}Male</Label>
-                          <Label check className="filter-checkbox"><Input type="checkbox" onChange={toggleSexFemale}/>{' '}Female</Label>
+                          <Label check className="filter-checkbox"><Input type="checkbox" onChange={toggleSexMale} defaultChecked={true}/>{' '}Male</Label>
+                          <Label check className="filter-checkbox"><Input type="checkbox" onChange={toggleSexFemale} defaultChecked={true}/>{' '}Female</Label>
                         </span>
                       </Col>
                       </div>
@@ -70,14 +77,10 @@ function Map() {
                       Donec adipiscing tristique risus nec feugiat in. Sit amet dictum sit amet justo donec enim. Laoreet sit amet cursus sit amet dictum. Euismod quis viverra nibh cras pulvinar. Adipiscing enim eu turpis egestas pretium aenean pharetra magna ac. Faucibus scelerisque eleifend donec pretium vulputate sapien. Eget arcu dictum varius duis at consectetur lorem donec. Adipiscing bibendum est ultricies integer quis auctor elit sed. Odio facilisis mauris sit amet massa vitae tortor condimentum lacinia. Donec ac odio tempor orci dapibus ultrices in.
                     </Card>
                 </Col>
-                <Col style={{paddingLeft: "8px", paddingRight: "15px", height: '100%'}} xs="4" md="4" lg="4">
+                <Col style={{paddingLeft: "8px", paddingRight: "15px"}} xs="4" md="4" lg="4">
                     <Card className="card-info">
                         <CardTitle>Info Section</CardTitle>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi sit amet mauris commodo quis imperdiet. Nisi lacus sed viverra tellus. Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum. Magna eget est lorem ipsum dolor sit amet consectetur adipiscing. Suspendisse potenti nullam ac tortor vitae purus faucibus. Purus non enim praesent elementum facilisis leo vel. At quis risus sed vulputate odio ut. Nunc mi ipsum faucibus vitae. Interdum posuere lorem ipsum dolor sit amet consectetur. Ultrices tincidunt arcu non sodales neque sodales. Quis ipsum suspendisse ultrices gravida dictum fusce. Risus nec feugiat in fermentum. Dolor purus non enim praesent elementum facilisis leo vel fringilla.
 
-                        Quis eleifend quam adipiscing vitae proin sagittis. Suscipit adipiscing bibendum est ultricies integer. Adipiscing bibendum est ultricies integer quis auctor elit sed. Sit amet purus gravida quis blandit turpis cursus in. Et leo duis ut diam quam nulla porttitor. Consectetur libero id faucibus nisl tincidunt eget. Tincidunt augue interdum velit euismod in pellentesque massa. Aenean euismod elementum nisi quis eleifend quam adipiscing vitae. Nunc faucibus a pellentesque sit amet porttitor eget dolor. Non nisi est sit amet facilisis magna. Id faucibus nisl tincidunt eget nullam non nisi est sit. Vitae proin sagittis nisl rhoncus. Non arcu risus quis varius quam quisque id. Vel pretium lectus quam id leo in vitae turpis massa. Accumsan in nisl nisi scelerisque. Vivamus at augue eget arcu dictum varius. Malesuada proin libero nunc consequat. Volutpat lacus laoreet non curabitur gravida arcu ac tortor.
-
-                        Donec adipiscing tristique risus nec feugiat in. Sit amet dictum sit amet justo donec enim. Laoreet sit amet cursus sit amet dictum. Euismod quis viverra nibh cras pulvinar. Adipiscing enim eu turpis egestas pretium aenean pharetra magna ac. Faucibus scelerisque eleifend donec pretium vulputate sapien. Eget arcu dictum varius duis at consectetur lorem donec. Adipiscing bibendum est ultricies integer quis auctor elit sed. Odio facilisis mauris sit amet massa vitae tortor condimentum lacinia. Donec ac odio tempor orci dapibus ultrices in.
                     </Card>
                 </Col>
             </Row>
