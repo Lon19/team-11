@@ -1,25 +1,7 @@
-# import sys
-# import requests
-
-# def hello_world():
-#     return "hello world"
-
-
-# function = sys.argv[1]
-
-# response = None
-
-# if function == "hello_world":
-#     response = hello_world()
-
-# print(response)
-# sys.stdout.flush()
-#### This is all well and good but it makes things cliumsy trying to print all output to the command line
-
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 
-import backend.data_processing
+import fetch_data
 
 app = Flask(__name__)
 CORS(app)
@@ -29,8 +11,12 @@ def hello_world():
     return jsonify({'res':'Hello, World!'})
 
 @app.route('/ward-data', methods=['GET'])
-def getWards():
-    return None
+def get_wards():
+    return fetch_data.get_data()
+
+@app.route('/ward-hist', methods=['GET'])
+def get_ward_hist():
+    return fetch_data.get_ward_hist(request.args.get('ward'))
 
 if __name__ == '__main__':
     app.run()
