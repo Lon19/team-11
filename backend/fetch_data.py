@@ -10,11 +10,18 @@ def get_new_ward(old_ward):
 
     return np.asarray(ward_lookup[ward_lookup['old_ward'] == old_ward]['new_ward'])
 
-new_ward_data = pd.read_csv('./backend/fixed_data.csv')
+new_ward_data = pd.read_csv('./backend/new_ward_data.csv')
 old_ward_data = pd.read_csv('./backend/old_ward_data.csv')
 
 # api_nomis['final_total'] = api_nomis['Total'] + api_nomis['Total.1']
 # api_nomis = (api_nomis.drop(['Female', 'Female.1', 'Male', 'Male.1', 'Total', 'Total.1', 'GEOGRAPHY_NAME'], axis = 1))
+# for i in range(0, len(new_ward_data)):
+#     print(get_new_ward(new_ward_data['GEOGRAPHY_CODE'][i])[0])
+#     new_ward_data['GEOGRAPHY_CODE'][i] = get_new_ward(new_ward_data['GEOGRAPHY_CODE'][i])[0]
+#     if i % 1000 == 0:
+#         print(i)
+
+# print(new_ward_data.head())
 new_ward_data = new_ward_data.set_index(verify_integrity = True, keys = ['GEOGRAPHY_CODE'])
 new_ward_data = new_ward_data.rename(columns={"final_total" : "total"})
 old_ward_data = old_ward_data.set_index(verify_integrity = True, keys = ['GEOGRAPHY_CODE'])
