@@ -6,6 +6,7 @@ import './Main.css';
 import './Fonts.css';
 import './Common.css';
 import D3Map from './D3-map';
+import axios from 'axios';
 
 function Map() {
 
@@ -58,6 +59,32 @@ function Map() {
         console.log("Search change (" + txtFilter + ")");
     }, [txtFilter]);
 
+    const updateData = (name, token) => {
+      axios.get("http://localhost:5000/get-old-ward?code="+token)
+      .then(newtok => {
+        let newToken = newtok.data.res;
+        axios.get("http://localhost:5000/ward-hist?ward="+newToken)
+        .then(newtokdata => {
+          let jsondata = newtokdata.data
+          setData({
+            datasets: [
+                {
+                    label: name,
+                    fillColor: 'rgba(220,220,220,0.2)',
+                    strokeColor: 'rgba(220,220,220,1)',
+                    pointColor: 'rgba(220,220,220,1)',
+                    pointStrokeColor: '#fff',
+                    pointHighlightFill: '#fff',
+                    pointHighlightStroke: 'rgba(220,220,220,1)',
+                    data: jsondata[newToken],
+                }
+            ]}
+          )
+        });
+      });
+    }
+
+
     return (
         <Container>
             <Row>
@@ -94,6 +121,7 @@ function Map() {
                           console.log(d);
                           
                           setCardTitle(d.properties.wd18nm);
+                          updateData(d.properties.wd18nm, d.properties.wd18cd);
                         }}/>
                       </CardBody>
                     </Card>
