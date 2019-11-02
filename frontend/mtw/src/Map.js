@@ -115,13 +115,14 @@ function Map() {
                       </div>
 
                       <CardBody>
-                        <D3Map onWardClick={(d) => {
+                        <D3Map onWardClick={(info) => {
                           
-                          console.log(d.properties.wd18cd);
-                          console.log(d);
+                          console.log(info.ward.properties.wd18cd);
+                          console.log(info.total);
+                          console.log(info);
                           
-                          setCardTitle(d.properties.wd18nm);
-                          updateData(d.properties.wd18nm, d.properties.wd18cd);
+                          setCardTitle(info.ward.properties.wd18nm);
+                          updateData(info.ward.properties.wd18nm, info.ward.properties.wd18cd);
                         }}/>
                       </CardBody>
                     </Card>

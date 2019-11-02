@@ -12,7 +12,7 @@ circle {
 
 path.active {
     fill: pink;
-    stroke-width: 4px;
+    stroke-width: 2px;
 }
 
 circle.active {
