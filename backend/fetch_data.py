@@ -10,6 +10,12 @@ def get_new_ward(old_ward):
 
     return np.asarray(ward_lookup[ward_lookup['old_ward'] == old_ward]['new_ward'])
 
+def get_old_ward(new_ward):
+    ward_lookup = pd.read_csv('./backend/ward_to_merged_ward.csv')[['WD11CD', 'CMWD11CD']]
+    ward_lookup.columns = ['new_ward', 'old_ward']
+
+    return np.asarray(ward_lookup[ward_lookup['new_ward'] == new_ward]['old_ward'])[0]
+
 new_ward_data = pd.read_csv('./backend/new_ward_data.csv')
 old_ward_data = pd.read_csv('./backend/old_ward_data.csv')
 
