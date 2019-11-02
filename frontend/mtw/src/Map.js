@@ -97,12 +97,8 @@ function Map() {
                     <Card className="card-info">
                       <CardBody>
                         <CardTitle>Info Section</CardTitle>
-<<<<<<< ours
-
-=======
                         <TestPlot data={data}/>
                       </CardBody>
->>>>>>> theirs
                     </Card>
                 </Col>
             </Row>
