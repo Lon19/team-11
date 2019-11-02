@@ -23,7 +23,7 @@ class D3Map extends React.Component {
   }
   
   getWardData() {
-    return axios.get("http://localhost:5000/ward-data")
+    return axios.get("http://localhost:5000/ward-data-old")
   }
   
   getTotal(wardData, mapData, feature) {
