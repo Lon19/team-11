@@ -37,5 +37,9 @@ def get_map_data():
 def get_ward_from_postcode():
     return fetch_data.get_ward_for_postcode(request.args.get('postcode'))
 
+@app.route('/get-old-ward', methods=['GET'])
+def get_old_ward():
+    return jsonify({"res" : fetch_data.get_old_ward(request.args.get('code'))})
+
 if __name__ == '__main__':
     app.run()
