@@ -5,6 +5,7 @@ import './Map.css';
 import './Main.css';
 import './Fonts.css';
 import './Common.css';
+import D3Map from './D3-map';
 
 function Map() {
 
@@ -85,12 +86,9 @@ function Map() {
                       </Col>
                       </div>
 
-                      <CardTitle>Map Section</CardTitle>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi sit amet mauris commodo quis imperdiet. Nisi lacus sed viverra tellus. Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum. Magna eget est lorem ipsum dolor sit amet consectetur adipiscing. Suspendisse potenti nullam ac tortor vitae purus faucibus. Purus non enim praesent elementum facilisis leo vel. At quis risus sed vulputate odio ut. Nunc mi ipsum faucibus vitae. Interdum posuere lorem ipsum dolor sit amet consectetur. Ultrices tincidunt arcu non sodales neque sodales. Quis ipsum suspendisse ultrices gravida dictum fusce. Risus nec feugiat in fermentum. Dolor purus non enim praesent elementum facilisis leo vel fringilla.
-
-                      Quis eleifend quam adipiscing vitae proin sagittis. Suscipit adipiscing bibendum est ultricies integer. Adipiscing bibendum est ultricies integer quis auctor elit sed. Sit amet purus gravida quis blandit turpis cursus in. Et leo duis ut diam quam nulla porttitor. Consectetur libero id faucibus nisl tincidunt eget. Tincidunt augue interdum velit euismod in pellentesque massa. Aenean euismod elementum nisi quis eleifend quam adipiscing vitae. Nunc faucibus a pellentesque sit amet porttitor eget dolor. Non nisi est sit amet facilisis magna. Id faucibus nisl tincidunt eget nullam non nisi est sit. Vitae proin sagittis nisl rhoncus. Non arcu risus quis varius quam quisque id. Vel pretium lectus quam id leo in vitae turpis massa. Accumsan in nisl nisi scelerisque. Vivamus at augue eget arcu dictum varius. Malesuada proin libero nunc consequat. Volutpat lacus laoreet non curabitur gravida arcu ac tortor.
-
-                      Donec adipiscing tristique risus nec feugiat in. Sit amet dictum sit amet justo donec enim. Laoreet sit amet cursus sit amet dictum. Euismod quis viverra nibh cras pulvinar. Adipiscing enim eu turpis egestas pretium aenean pharetra magna ac. Faucibus scelerisque eleifend donec pretium vulputate sapien. Eget arcu dictum varius duis at consectetur lorem donec. Adipiscing bibendum est ultricies integer quis auctor elit sed. Odio facilisis mauris sit amet massa vitae tortor condimentum lacinia. Donec ac odio tempor orci dapibus ultrices in.
+                      <CardBody>
+                        <D3Map />
+                      </CardBody>
                     </Card>
                 </Col>
                 <Col style={{paddingLeft: "8px", paddingRight: "15px"}} xs="4" md="4" lg="4">
