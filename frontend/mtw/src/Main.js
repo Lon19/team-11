@@ -7,6 +7,7 @@ import './Fonts.css';
 import './Common.css';
 
 function Main() {
+
   return (
     <div className="App">
       <div className="Main">
