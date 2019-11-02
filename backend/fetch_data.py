@@ -63,3 +63,14 @@ def get_uk_analytics():
     nir_val = round(np.mean(api_nomis.loc[nir, 'total']), 1)
 
     return jsonify({'uk':av_uk, 'england':eng_val, 'wales':wal_val, 'scotland':sco_val, 'ni':nir_val})
+
+def get_ward_for_postcode(postcode):
+    response = requests.get("http://api.postcodes.io/postcodes/"+str(postcode))
+    data = json.loads(response.text)
+    if data['status'] != 200:
+        return json.dumps({"res":"fail", "reason":"Invalid postcode"})
+    else:
+        code = data["result"]["codes"]["admin_ward"]
+    if code.startswith("S") or code.startswith("N"):
+        return json.dumps({"res":"fail", "reason":"Due to missing data, Scotland and Northern Ireland are excluded from postcode lookup"})
+    return json.dumps({"res":code})
