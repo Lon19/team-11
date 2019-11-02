@@ -16,7 +16,7 @@ function Footer() {
             <Col md="6">
               <h5>Team 11 Members</h5>
               <ul>
-                <li>Joesph Bond</li>
+                <li>Joseph Bond</li>
                 <li>Jay Carder</li>
                 <li>Kyle Gough</li>
                 <li>Will Osborne</li>
