@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+import json
 
 import fetch_data
 
@@ -21,6 +22,12 @@ def get_ward_hist():
 @app.route('/uk-stats', methods=['GET'])
 def get_uk_analytics():
     return fetch_data.get_uk_analytics()
+
+@app.route('/map-data', methods=['GET'])
+def get_map_data():
+    with open('backend/map.json', 'r') as f:
+        data = json.load(f)
+    return data
 
 if __name__ == '__main__':
     app.run()
