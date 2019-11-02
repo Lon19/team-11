@@ -9,6 +9,7 @@ api_nomis = pd.read_csv('./backend/nomis_data.csv').sort_values(by = ['GEOGRAPHY
 api_nomis['final_total'] = api_nomis['Total'] + api_nomis['Total.1']
 api_nomis = (api_nomis.drop(['Female', 'Female.1', 'Male', 'Male.1', 'Total', 'Total.1', 'GEOGRAPHY_NAME'], axis = 1))
 api_nomis = api_nomis.set_index(verify_integrity = True, keys = ['GEOGRAPHY_CODE'])
+api_nomis['GEOGRAPHY_CODE'].apply(get_new_ward)
 api_nomis = api_nomis.rename(columns={"final_total" : "total"})
 
 def get_data():
@@ -48,7 +49,11 @@ def get_ward_hist(ward):
     # return composite_df.to_json(orient = 'values')
     return json.dumps({ward:composite_np.tolist()})
 
-print(get_ward_hist('95AA01'))
+def get_new_ward(old_ward):
+    ward_lookup = pd.read_csv('./backend/ward_to_merged_ward.csv')[['WD11CD', 'CMWD11CD']]
+    ward_lookup.columns = ['new_ward', 'old_ward']
+
+    return np.asarray(ward_lookup[ward_lookup['old_ward'] == old_ward]['new_ward'])
 
 def get_uk_analytics():
     av_uk = round(np.mean(api_nomis['total']), 1)
