@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import requests
 from flask import jsonify
+import json
 
 api_nomis = pd.read_csv('./backend/nomis_data.csv').sort_values(by = ['GEOGRAPHY_NAME'])
 
@@ -45,7 +46,7 @@ def get_ward_hist(ward):
     #     composite_df[str(i)] = composite_np[i]
     # composite_df = composite_df.set_index(keys = ['GEOGRAPHY_CODE'])
     # return composite_df.to_json(orient = 'values')
-    return jsonify({ward:jsonify(composite_np)})
+    return json.dumps({ward:composite_np.tolist()})
 
 print(get_ward_hist('95AA01'))
 
