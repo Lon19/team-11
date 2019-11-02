@@ -1,11 +1,32 @@
-.Mapboi {
+.card-map {
+    padding: 0.5em!important;
     margin: 0;
-    padding: 0;
     height: 100%;
 }
 
-.Otherboi {
+.card-info {
+    padding: 0.5em!important;
     margin: 0;
-    padding: 0;
     height: 100%;
+}
+
+.filter-checkbox {
+    padding-right: 1em;
+    margin-right: 1em;
+    text-align: center;
+}
+
+.filter-checkbox-header {
+    margin-bottom: 0em!important;
+    margin-top: 0.15em;
+    margin-right: 1em;
+}
+
+.form-check-label {
+    width: 70px!important;
+}
+
+.form-check-input {
+    width: 16px;
+    height: 16px;
 }

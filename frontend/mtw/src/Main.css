@@ -2,16 +2,20 @@
   height: 100%;
   display: flex;
   flex-flow: column;
+
+}
+
+body {
+     font-family: 'Noto Serif JP', serif;
 }
 
 .Main-Content {
   /* min-height: 100vh; */
   flex: 1;
-  font-size: calc(10px + 1vmin);
+  font-size: 14px;
   color: black;
   display: flex;
   flex-flow: column;
   margin-top: 15px;
   margin-bottom: 15px;
 }
-

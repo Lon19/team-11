@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import MtwNav from './MtwNav.js';
 import Map from './Map';
-import { Container, Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input, Collapse, InputGroup, InputGroupText, InputGroupAddon } from 'reactstrap';
+import Footer from './Footer';
 import './Main.css';
+import './Fonts.css';
+import './Common.css';
 
 function Main() {
-  const [filter, setFilter] = useState(false);
-  const toggleFilter = () => setFilter(!filter);
-
   return (
     <div className="App">
       <div className="Main">
@@ -15,7 +14,8 @@ function Main() {
           <div className="Main-Content">
             <Map />
           </div>
-        </div>
+      </div>
+      <Footer />
     </div>
   );
 }
